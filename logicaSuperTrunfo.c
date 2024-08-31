@@ -197,7 +197,7 @@ int main(){
     
     printf("Informe quantos pontos turísticos existem na cidade: \n");
     scanf("%d", &pontos4);    
-
+    while ((getchar()) != '\n');
     densidade4 = populacao4 / area4; //calcula densidade demográfica;
 
     pibper4 = PIB4 / populacao4; //calcula PIB per capita;
@@ -252,7 +252,7 @@ int main(){
     printf("8. Sair\n");
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
-
+    
     switch (opcao){
         
         //comparação da população
