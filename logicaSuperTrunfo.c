@@ -1,41 +1,3 @@
-// Desafio Super Trunfo - Países ok
-// Tema 2 - Comparação das Cartas ok
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. ok
-// Siga os comentários para implementar cada parte do desafio. ok
-
-    // Definição das variáveis para armazenar as propriedades das cidadesok
-    // Você pode utilizar o código do primeiro desafio ok
-
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades ok
-    // utilizando a função scanf para capturar as entradas.ok
-    // utilize o código do primeiro desafio ok
-
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
-
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
-
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
 #include <stdio.h>
 #include <string.h>
 
@@ -50,7 +12,7 @@ int main(){
     float densidadeinvertida1, densidadeinvertida2, densidadeinvertida3, densidadeinvertida4;
     float pibper1,pibper2, pibper3, pibper4;
     float superpoder1, superpoder2, superpoder3, superpoder4;
-    int pontos1, pontos2, pontos3, pontos4;
+    int pontos1, pontos2, pontos3, pontos4, opcao;
 
     //início do primeiro estado
     printf("Digite o Nome do Primeiro Estado: \n");
@@ -152,69 +114,6 @@ int main(){
 
     while ((getchar()) != '\n');
 
-    /* Inverte a densidade populacional da primeira carta para usar na soma
-    (para favorecimento de menores densidades)*/
-    densidadeinvertida1 = 1 / densidade1;
-    
-    //soma propriedades da primeira carta
-    superpoder1 = (float) populacao1 + area1 + PIB1 + densidadeinvertida1 + pibper1 + (float) pontos1;
-
-    /* Inverte a densidade populacional da primeira carta para usar na soma
-    (para favorecimento de menores densidades)*/
-    densidadeinvertida2 = 1 / densidade2;
-
-    //soma propriedades da segunda carta
-    superpoder2 = (float) populacao2 + area2 + PIB2 + densidadeinvertida2 + pibper2 + (float) pontos2;
-
-    //comparação da população
-    if (populacao1 > populacao2){
-        printf("Cidade %s tem a maior população! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem a maior população! \n", cidadeB);
-    }
-    //comparação da área
-    if (area1 > area2){
-        printf("Cidade %s tem a maior área! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem a maior área! \n", cidadeB);
-    }
-    //comparação do PIB
-    if (PIB1 > PIB2){
-        printf("Cidade %s tem o maior PIB! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem o maior PIB! \n", cidadeB);
-    }
-    //comparação dos pontos turísticos
-    if (pontos1 > pontos2){
-        printf("Cidade %s tem mais pontos turísticos! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem mais pontos turísticos! \n", cidadeB);
-    }
-    //comparação densidade demográfica
-    if (densidadeinvertida1 > densidadeinvertida2){
-        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeB);
-    }
-    //comparação pib per capita
-    if (pibper1 > pibper2){
-        printf("Cidade %s tem mais pontos turísticos! \n", cidadeA);
-    } else {
-        printf("Cidade %s tem mais pontos turísticos! \n", cidadeB);
-    }
-    //comparação superpoder
-    if (superpoder1 > superpoder2){
-        printf("Cidade %s tem o maior SUPERPODER \n", cidadeA);
-    } else {
-        printf("Cidade %s tem o maior SUPERPODER! \n", cidadeB);
-    }
-    //exibição de resultados
-    if (superpoder1 > superpoder2){
-        printf("A cidade vencedora é: %s", cidadeA);
-    } else {
-        printf("A cidade vencedora é: %s", cidadeB);
-    }
-
     //início do terceiro estado
     printf("\nDigite o Nome do Terceiro Estado: \n");
     fgets(estado3, sizeof(estado3), stdin);
@@ -223,9 +122,6 @@ int main(){
     printf("Digite o código da cidade (Ex: A01, B02): \n");
     fgets(cod3, sizeof(cod3), stdin);
     cod3[strcspn(cod3, "\n")] = 0; // Remove a nova linha
-
-    // Limpar o buffer de entrada
-    while ((getchar()) != '\n');
 
     //início da terceira cidade
 
@@ -278,9 +174,6 @@ int main(){
     fgets(cod4, sizeof(cod4), stdin);
     cod4[strcspn(cod4, "\n")] = 0; // Remove a nova linha
 
-    // Limpar o buffer de entrada
-    while ((getchar()) != '\n');
-
      //início da quarta cidade
     printf("\nDigite o Nome da Quarta Cidade: \n");
     fgets(cidadeD, sizeof(cidadeD), stdin);
@@ -319,7 +212,21 @@ int main(){
     printf("e essa cidade possui %d pontos turísticos.\n", pontos4);
     //fim da quarta cidade
 
-/* Inverte a densidade populacional da primeira carta para usar na soma
+    /* Inverte a densidade populacional da primeira carta para usar na soma
+    (para favorecimento de menores densidades)*/
+    densidadeinvertida1 = 1 / densidade1;
+    
+    //soma propriedades da primeira carta
+    superpoder1 = (float) populacao1 + area1 + PIB1 + densidadeinvertida1 + pibper1 + (float) pontos1;
+
+    /* Inverte a densidade populacional da primeira carta para usar na soma
+    (para favorecimento de menores densidades)*/
+    densidadeinvertida2 = 1 / densidade2;
+
+    //soma propriedades da segunda carta
+    superpoder2 = (float) populacao2 + area2 + PIB2 + densidadeinvertida2 + pibper2 + (float) pontos2;
+
+    /* Inverte a densidade populacional da primeira carta para usar na soma
     (para favorecimento de menores densidades)*/
     densidadeinvertida3 = 1 / densidade3;
     
@@ -332,21 +239,151 @@ int main(){
 
     //soma propriedades da segunda carta
     superpoder4 = (float) populacao4 + area4 + PIB4 + densidadeinvertida4 + pibper4 + (float) pontos4;
+   
+   do{
+    printf("Menu Principal\n");
+    printf("1. Comparar População\n");
+    printf("2. Comparar Área\n");
+    printf("3. Comparar PIB\n");
+    printf("4. Comparar Pontos Turísticos\n");
+    printf("5. Comparar Densidade Demográfica\n");
+    printf("6. Comparar PIB per capita\n");
+    printf("7. Comparar SUPERPODER\n");
+    printf("8. Sair\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
 
-    //início da comparação das cartas
-    printf ("Populacao: Carta 3 (%lu) vs Carta 4 (%lu) - Vencedor: %s\n", populacao3, populacao4, populacao3 > populacao4 ? "Carta 3" : "Carta 4");
+    switch (opcao){
+        
+        //comparação da população
+    case 1:
+    if (populacao1 > populacao2 && populacao1 > populacao3 && populacao1 > populacao4){
+        printf("Cidade %s tem a maior população! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (populacao2 > populacao1 && populacao2 > populacao3 && populacao2 > populacao4) {
+        printf("Cidade %s tem a maior população! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (populacao3 > populacao1 && populacao3 > populacao2 && populacao3 > populacao4) {
+        printf("Cidade %s tem a maior população! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem a maior população! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
+        
+        //comparação da área
+    case 2:
+    if (area1 > area2 && area1 > area3 && area1 > area4){
+        printf("Cidade %s tem a maior área! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (area2 > area1 && area2 > area3 && area2 > area4) {
+        printf("Cidade %s tem a maior área! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (area3 > area1 && area3 > area2 && area3 > area4) {
+        printf("Cidade %s tem a maior área! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem a maior área! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
+        
+        //comparação do PIB
+    case 3:
+    if (PIB1 > PIB2 && PIB1 > PIB3 && PIB1 > PIB4){
+        printf("Cidade %s tem o maior PIB! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (PIB2 > PIB1 && PIB2 > PIB3 && PIB2 > PIB4) {
+        printf("Cidade %s tem o maior PIB! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (PIB3 > PIB1 && PIB3 > PIB2 && PIB3 > PIB4) {
+        printf("Cidade %s tem o maior PIB! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem o maior PIB! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
+      
+        //comparação dos pontos turísticos
+    case 4:
+    if (pontos1 > pontos2 && pontos1 > pontos3 && pontos1 > pontos4){
+        printf("Cidade %s tem mais pontos turísticos! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (pontos2 > pontos1 && pontos2 > pontos3 && pontos2 > pontos4) {
+        printf("Cidade %s tem mais pontos turísticos! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (pontos3 > pontos1 && pontos3 > pontos2 && pontos3 > pontos4) {
+        printf("Cidade %s tem mais pontos turísticos! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem mais pontos turísticos! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
+    
+        //comparação densidade demográfica
+    case 5:
+    if (densidadeinvertida1 > densidadeinvertida2 && densidadeinvertida1 > densidadeinvertida3 && densidadeinvertida1 > densidadeinvertida4){
+        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (densidadeinvertida2 > densidadeinvertida1 && densidadeinvertida2 > densidadeinvertida3 && densidadeinvertida2 > densidadeinvertida4) {
+        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (densidadeinvertida3 > densidadeinvertida1 && densidadeinvertida3 > densidadeinvertida2 && densidadeinvertida3 > densidadeinvertida4) {
+        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem a menor densidade demográfica! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
+        
+        //comparação pib per capita
+    case 6:
+    if (pibper1 > pibper2 && pibper1 > pibper3 && pibper1 > pibper4){
+        printf("Cidade %s tem o maior PIB per capita! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (pibper2 > pibper1 && pibper2 > pibper3 && pibper2 > pibper4) {
+        printf("Cidade %s tem o maior PIB per capita! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (pibper3 > pibper1 && pibper3 > pibper2 && pibper3 > pibper4) {
+        printf("Cidade %s tem o maior PIB per capita! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem o maior PIB per capita! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
 
-    printf ("Area: Carta 3 (%.3f) vs Carta 4 (%.3f) - Vencedor: %s\n", area3, area4, area3 > area4 ? "Carta 3" : "Carta 4");
+        //comparação superpoder
+    case 7:
+    if (superpoder1 > superpoder2 && superpoder1 > superpoder3 && superpoder1 > superpoder4){
+        printf("Cidade %s tem o maior SUPERPODER! \n", cidadeA);
+        printf("A cidade vencedora é: %s\n", cidadeA);
+    } else if (superpoder2 > superpoder1 && superpoder2 > superpoder3 && superpoder2 > superpoder4) {
+        printf("Cidade %s tem o maior SUPERPODER! \n", cidadeB);
+        printf("A cidade vencedora é: %s\n", cidadeB);
+    } else if (superpoder3 > superpoder1 && superpoder3 > superpoder2 && superpoder3 > superpoder4) {
+        printf("Cidade %s tem o maior SUPERPODER! \n", cidadeC);
+        printf("A cidade vencedora é: %s\n", cidadeC);
+    } else {
+        printf("Cidade %s tem o maior SUPERPODER! \n", cidadeD);
+        printf("A cidade vencedora é: %s\n", cidadeD);
+    }
+        break;
 
-    printf ("PIB: Carta 3 (%.3f) vs Carta 4 (%.3f) - Vencedor: %s\n", PIB3, PIB4, PIB3 > PIB4 ? "Carta 3" : "Carta 4");
+        //sair do programa
+    case 8:
+        printf("Saindo...\n");
+        break;
 
-    printf ("Pontos Turísticos: Carta 3 (%d) vs Carta 4 (%d) - Vencedor: %s\n", pontos3, pontos4, pontos3 > pontos4 ? "Carta 3" : "Carta 4");
-
-    printf ("Densidade populacional: Carta 3 (%.6f) vs Carta 4 (%.6f) - Vencedor: %s\n", densidadeinvertida3, densidadeinvertida4, densidadeinvertida3 > densidadeinvertida4 ? "Carta 3" : "Carta 4");
-
-    printf ("PiB per capita: Carta 3 (%.3f) vs Carta 4 (%.3f) - Vencedor: %s\n", pibper3, pibper4, pibper3 > pibper4 ? "Carta 3" : "Carta 4");
-
-    printf ("SuperPoder: Carta 3 (%.3f) vs Carta 4 (%.3f) - Vencedor: %s\n", superpoder3, superpoder4, superpoder3 > superpoder4 ? "Carta 3" : "Carta 4");
-
-    return 0;
+        //nenhuma das opções
+        default:
+        printf("opção inválida! escolha uma opção de 1 a 7\n");
+        break;
+    }    
+    } while (opcao != 8);
+        return 0;
 }
