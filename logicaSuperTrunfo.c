@@ -12,7 +12,8 @@ int main(){
     float densidadeinvertida1, densidadeinvertida2, densidadeinvertida3, densidadeinvertida4;
     float pibper1,pibper2, pibper3, pibper4;
     float superpoder1, superpoder2, superpoder3, superpoder4;
-    int pontos1, pontos2, pontos3, pontos4, opcao;
+    int pontos1, pontos2, pontos3, pontos4;
+    int opcao, atributo1, atributo2, cidade1, cidade2;
 
     //início do primeiro estado
     printf("Digite o Nome do Primeiro Estado: \n");
@@ -249,7 +250,8 @@ int main(){
     printf("5. Comparar Densidade Demográfica\n");
     printf("6. Comparar PIB per capita\n");
     printf("7. Comparar SUPERPODER\n");
-    printf("8. Sair\n");
+    printf("8. Escolher Cidades e Atributos para comparar\n");
+    printf("9. Sair\n");
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
     
@@ -374,8 +376,199 @@ int main(){
     }
         break;
 
-        //sair do programa
     case 8:
+        //escolha das cidades
+        printf("Escolha a primeira cidade para comparar:\n");
+        printf("\n");
+        printf("1. %s", cidadeA);
+        printf("2. %s", cidadeB);
+        printf("3. %s", cidadeC);
+        printf("4. %s", cidadeD);
+        printf("Escolha uma opção: \n");
+        scanf("%d", cidade1);
+
+        printf("\n");
+
+        printf("Escolha a segunda cidade para comparar:\n");
+        printf("\n");
+        printf("1. %s", cidadeA);
+        printf("2. %s", cidadeB);
+        printf("3. %s", cidadeC);
+        printf("4. %s", cidadeD);
+        printf("Escolha uma opção: \n");
+        scanf("%d", cidade2);
+
+        printf("\n");
+
+        //seleção dos atributos
+        printf("Escolha o primeiro atributo para comparar:");
+        printf("1. População\n");
+        printf("2. Área\n");
+        printf("3. PIB\n");
+        printf("4. Pontos Turísticos\n");
+        printf("5. Densidade Demográfica\n");
+        printf("6. PIB per capita\n");
+        printf("7. SUPERPODER\n");
+        printf("Escolha uma opção: \n");
+        scanf("%d", atributo1);
+
+        printf("\n");
+
+        printf("Escolha o segundo atributo para comparar:");
+        printf("1. População\n");
+        printf("2. Área\n");
+        printf("3. PIB\n");
+        printf("4. Pontos Turísticos\n");
+        printf("5. Densidade Demográfica\n");
+        printf("6. PIB per capita\n");
+        printf("7. SUPERPODER\n");
+        printf("Escolha uma opção: \n");
+        scanf("%d", atributo2);
+
+        //declaração de variáveis para receber os valores de comparação das cidades escolhidas e atributos
+        /*
+        float valor1, valor2;
+
+        valor1: Armazena o valor do primeiro atributo da primeira cidade selecionada.
+        valor2: Armazena o valor do primeiro atributo da segunda cidade selecionada.
+        Esses valores são do tipo float, porque os atributos que estamos comparando (como área, PIB, densidade, etc.) 
+        geralmente são números com ponto flutuante.
+
+        char *nome1, *nome2;
+
+        nome1: Armazena o nome do primeiro atributo que está sendo comparado.
+        nome2: Armazena o nome do segundo atributo que está sendo comparado.
+        Essas variáveis são ponteiros para strings (char *), porque armazenam o nome dos atributos,
+        como "População", "Área", "PIB", etc.
+
+        char *nome_cidade1, *nome_cidade2;
+
+        nome_cidade1: Armazena o nome da primeira cidade que está sendo comparada.
+        nome_cidade2: Armazena o nome da segunda cidade que está sendo comparada.
+        Assim como nome1 e nome2, essas variáveis são ponteiros para strings (char *), 
+        e armazenam os nomes das cidades, como "São Paulo", "Rio de Janeiro", etc. */
+        float valor1, valor2;
+        char *nome1, *nome2;
+        char *nome_cidade1, *nome_cidade2;
+
+        //menu para identificar os valores das cidades e atributos
+        switch (cidade1)
+        {
+        case 1: nome_cidade1 = cidadeA; break;
+        case 2: nome_cidade1 = cidadeB; break;
+        case 3: nome_cidade1 = cidadeC; break;
+        case 4: nome_cidade1 = cidadeD; break;        
+        default: printf("Cidade inválida. Escolha uma cidade entre 1 e 4."); continue;
+        }
+        switch (cidade2)
+        {
+        case 1: nome_cidade2 = cidadeA; break;
+        case 2: nome_cidade2 = cidadeB; break;
+        case 3: nome_cidade2 = cidadeC; break;
+        case 4: nome_cidade2 = cidadeD; break;
+        default: printf("Cidade inválida. Escolha uma cidade entre 1 e 4."); continue;
+        }
+        
+        //switch para escolha do atributo 1 e comparação
+        switch (atributo1)
+        {
+        case 1:
+            valor1 = cidade1 == 1 ? populacao1 : cidade1 == 2 ? populacao2 : cidade1 == 3 ? populacao3 : populacao4;
+            valor2 = cidade2 == 1 ? populacao1 : cidade2 == 2 ? populacao2 : cidade2 == 3 ? populacao3 : populacao4;
+            nome1 = "População";
+            break;
+        
+        case 2:
+            valor1 = cidade1 == 1 ? area1 : cidade1 == 2 ? area2 : cidade1 == 3 ? area3 : area4;
+            valor2 = cidade2 == 1 ? area1 : cidade2 == 2 ? area2 : cidade2 == 3 ? area3 : area4;
+            nome1 = "Área";
+            break;
+
+        case 3:
+            valor1 = cidade1 == 1 ? PIB1 : cidade1 == 2 ? PIB2 : cidade1 == 3 ? PIB3 : PIB4;
+            valor2 = cidade2 == 1 ? PIB1 : cidade2 == 2 ? PIB2 : cidade2 == 3 ? PIB3 : PIB4;
+            nome1 = "PIB";
+            break;
+        case 4:
+            valor1 = cidade1 == 1 ? pontos1 : cidade1 == 2 ? pontos2 : cidade1 == 3 ? pontos3 : pontos4;
+            valor2 = cidade2 == 1 ? pontos1 : cidade2 == 2 ? pontos2 : cidade2 == 3 ? pontos3 : pontos4;
+            nome1 = "Pontos Turísticos";
+            break;
+
+        case 5:
+            valor1 = cidade1 == 1 ? densidadeinvertida1 : cidade1 == 2 ? densidadeinvertida2 : cidade1 == 3 ? densidadeinvertida3 : densidadeinvertida4;
+            valor2 = cidade2 == 1 ? densidadeinvertida1 : cidade2 == 2 ? densidadeinvertida2 : cidade2 == 3 ? densidadeinvertida3 : densidadeinvertida4;
+            nome1 = "Densidade Demográfica";
+            break;
+
+        case 6: 
+            valor1 = cidade1 == 1 ? pibper1 : cidade1 == 2 ? pibper2 : cidade1 == 3 ? pibper3 : pibper4;
+            valor2 = cidade2 == 1 ? pibper1 : cidade2 == 2 ? pibper2 : cidade2 == 3 ? pibper3 : pibper4;
+            nome1 = "PIB per capita";
+
+        case 7:
+            valor1 = cidade1 == 1 ? superpoder1 : cidade1 == 2 ? superpoder2 : cidade1 == 3 ? superpoder3 : superpoder4;
+            valor2 = cidade2 == 1 ? superpoder1 : cidade2 == 2 ? superpoder2 : cidade2 == 3 ? superpoder3 : superpoder4;
+            nome1 = "Super Poder";
+        default: 
+            printf("Opção inválida. Escolha um atributo entre 1 e 7."); continue;
+        }
+            
+            //switch para escolha do atributo 1 e comparação
+        switch (atributo2)
+        {
+        case 1:
+            valor1 = cidade1 == 1 ? populacao1 : cidade1 == 2 ? populacao2 : cidade1 == 3 ? populacao3 : populacao4;
+            valor2 = cidade2 == 1 ? populacao1 : cidade2 == 2 ? populacao2 : cidade2 == 3 ? populacao3 : populacao4;
+            nome1 = "População";
+        break;
+        
+        case 2:
+            valor1 = cidade1 == 1 ? area1 : cidade1 == 2 ? area2 : cidade1 == 3 ? area3 : area4;
+            valor2 = cidade2 == 1 ? area1 : cidade2 == 2 ? area2 : cidade2 == 3 ? area3 : area4;
+            nome1 = "Área";
+        break;
+
+        case 3:
+            valor1 = cidade1 == 1 ? PIB1 : cidade1 == 2 ? PIB2 : cidade1 == 3 ? PIB3 : PIB4;
+            valor2 = cidade2 == 1 ? PIB1 : cidade2 == 2 ? PIB2 : cidade2 == 3 ? PIB3 : PIB4;
+            nome1 = "PIB";
+        break;
+        case 4:
+            valor1 = cidade1 == 1 ? pontos1 : cidade1 == 2 ? pontos2 : cidade1 == 3 ? pontos3 : pontos4;
+            valor2 = cidade2 == 1 ? pontos1 : cidade2 == 2 ? pontos2 : cidade2 == 3 ? pontos3 : pontos4;
+            nome1 = "Pontos Turísticos";
+        break;
+
+        case 5:
+            valor1 = cidade1 == 1 ? densidadeinvertida1 : cidade1 == 2 ? densidadeinvertida2 : cidade1 == 3 ? densidadeinvertida3 : densidadeinvertida4;
+            valor2 = cidade2 == 1 ? densidadeinvertida1 : cidade2 == 2 ? densidadeinvertida2 : cidade2 == 3 ? densidadeinvertida3 : densidadeinvertida4;
+            nome1 = "Densidade Demográfica";
+        break;
+
+        case 6: 
+            valor1 = cidade1 == 1 ? pibper1 : cidade1 == 2 ? pibper2 : cidade1 == 3 ? pibper3 : pibper4;
+            valor2 = cidade2 == 1 ? pibper1 : cidade2 == 2 ? pibper2 : cidade2 == 3 ? pibper3 : pibper4;
+            nome1 = "PIB per capita";
+        break;
+        case 7:
+            valor1 = cidade1 == 1 ? superpoder1 : cidade1 == 2 ? superpoder2 : cidade1 == 3 ? superpoder3 : superpoder4;
+            valor2 = cidade2 == 1 ? superpoder1 : cidade2 == 2 ? superpoder2 : cidade2 == 3 ? superpoder3 : superpoder4;
+            nome1 = "Super Poder";
+        break;
+        default: 
+            printf("Opção inválida. Escolha um atributo entre 1 e 7.\n"); continue;
+        }
+
+            // Exibir comparação
+                printf("\nComparação entre %s e %s:\n", nome_cidade1, nome_cidade2);
+                printf("Atributo %s: %s: %.2f, %s: %.2f\n", nome1, nome_cidade1, valor1, nome_cidade2, valor2);
+                printf("Atributo %s: %s: %.2f, %s: %.2f\n", nome2, nome_cidade1, valor1, nome_cidade2, valor2);
+                break;
+    }
+
+        //sair do programa
+    case 9:
         printf("Saindo...\n");
         break;
 
