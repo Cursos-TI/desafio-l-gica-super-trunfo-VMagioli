@@ -559,12 +559,25 @@ int main(){
         default: 
             printf("Opção inválida. Escolha um atributo entre 1 e 7.\n"); continue;
         }
+        
+        // Exibir comparação e verificar empate
+            printf("\nComparação entre %s e %s:\n", nome_cidade1, nome_cidade2);
 
-            // Exibir comparação
-                printf("\nComparação entre %s e %s:\n", nome_cidade1, nome_cidade2);
-                printf("Atributo %s: %s: %.2f, %s: %.2f\n", nome1, nome_cidade1, valor1, nome_cidade2, valor2);
-                printf("Atributo %s: %s: %.2f, %s: %.2f\n", nome2, nome_cidade1, valor1, nome_cidade2, valor2);
-                break;
+        if (valor1 == valor2) {
+            printf("Atributo %s: %s e %s têm valores iguais: %.2f (Empate)\n", nome1, nome_cidade1, nome_cidade2, valor1);
+        } else if (valor1 > valor2) {
+            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome1, nome_cidade1, valor1, valor2);
+        } else {
+            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome1, nome_cidade2, valor2, valor1);
+        }
+
+        if (valor1 == valor2) {
+            printf("Atributo %s: %s e %s têm valores iguais: %.2f (Empate)\n", nome2, nome_cidade1, nome_cidade2, valor1);
+        } else if (valor1 > valor2) {
+            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome2, nome_cidade1, valor1, valor2);
+        } else {
+            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome2, nome_cidade2, valor2, valor1);
+        }
     }
 
         //sair do programa
