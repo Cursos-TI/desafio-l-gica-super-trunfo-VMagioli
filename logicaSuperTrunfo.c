@@ -51,7 +51,7 @@ int main(){
 
     pibper1 = PIB1 / populacao1; //calcula PIB per capita;
 
-    printf("Estado: %s\n", estado1);
+    printf("\nEstado: %s\n", estado1);
     printf("Código da Carta: %s\n", cod1);
     printf("Cidade: %s \n", cidadeA);
     printf("Número da população: %lu \n", populacao1);
@@ -102,7 +102,7 @@ int main(){
 
     pibper2 = PIB2 / populacao2; //calcula PIB per capita;
 
-    printf("Estado: %s\n", estado2);
+    printf("\nEstado: %s\n", estado2);
     printf("Código da Carta: %s\n", cod2);
     printf("A %s tem uma população de %.3lu \n", cidadeB, populacao2);
     printf("a área total é de %.3f \n", area2);
@@ -126,7 +126,7 @@ int main(){
 
     //início da terceira cidade
 
-    printf("\nDigite o Nome da Terceira Cidade: \n");
+    printf("Digite o Nome da Terceira Cidade: \n");
     fgets(cidadeC, sizeof(cidadeC), stdin);
     cidadeC[strcspn(cidadeC, "\n")] = 0; // Remove a nova linha
 
@@ -153,7 +153,7 @@ int main(){
 
     pibper3 = PIB3 / populacao3; //calcula PIB per capita;
 
-    printf("Estado: %s\n", estado3);
+    printf("\nEstado: %s\n", estado3);
     printf("Código da Carta: %s\n", cod3);
     printf("A %s tem uma população de %.3lu \n", cidadeC, populacao3);
     printf("a área total é de %.3f \n", area3);
@@ -176,7 +176,7 @@ int main(){
     cod4[strcspn(cod4, "\n")] = 0; // Remove a nova linha
 
      //início da quarta cidade
-    printf("\nDigite o Nome da Quarta Cidade: \n");
+    printf("Digite o Nome da Quarta Cidade: \n");
     fgets(cidadeD, sizeof(cidadeD), stdin);
     cidadeD[strcspn(cidadeD, "\n")] = 0; // Remove a nova linha
 
@@ -203,7 +203,7 @@ int main(){
 
     pibper4 = PIB4 / populacao4; //calcula PIB per capita;
 
-    printf("Estado: %s\n", estado4);
+    printf("\nEstado: %s\n", estado4);
     printf("Código da Carta: %s\n", cod4);
     printf("A %s tem uma população de %.3lu \n", cidadeD, populacao4);
     printf("a área total é de %.3f \n", area4);
@@ -242,7 +242,7 @@ int main(){
     superpoder4 = (float) populacao4 + area4 + PIB4 + densidadeinvertida4 + pibper4 + (float) pontos4;
    
    do{
-    printf("Menu Principal\n");
+    printf("\nMenu Principal\n");
     printf("1. Comparar População\n");
     printf("2. Comparar Área\n");
     printf("3. Comparar PIB\n");
@@ -448,7 +448,7 @@ int main(){
         nome_cidade2: Armazena o nome da segunda cidade que está sendo comparada.
         Assim como nome1 e nome2, essas variáveis são ponteiros para strings (char *), 
         e armazenam os nomes das cidades, como "São Paulo", "Rio de Janeiro", etc. */
-        float valor1, valor2;
+        float valor1, valor2, valor3, valor4;
         char *nome1, *nome2;
         char *nome_cidade1, *nome_cidade2;
 
@@ -477,99 +477,85 @@ int main(){
             valor1 = cidade1 == 1 ? populacao1 : cidade1 == 2 ? populacao2 : cidade1 == 3 ? populacao3 : populacao4;
             valor2 = cidade2 == 1 ? populacao1 : cidade2 == 2 ? populacao2 : cidade2 == 3 ? populacao3 : populacao4;
             nome1 = "População";
-            nome2 = "População";
             break;
         
         case 2:
             valor1 = cidade1 == 1 ? area1 : cidade1 == 2 ? area2 : cidade1 == 3 ? area3 : area4;
             valor2 = cidade2 == 1 ? area1 : cidade2 == 2 ? area2 : cidade2 == 3 ? area3 : area4;
             nome1 = "Área";
-            nome2 = "Área";
             break;
 
         case 3:
             valor1 = cidade1 == 1 ? PIB1 : cidade1 == 2 ? PIB2 : cidade1 == 3 ? PIB3 : PIB4;
             valor2 = cidade2 == 1 ? PIB1 : cidade2 == 2 ? PIB2 : cidade2 == 3 ? PIB3 : PIB4;
             nome1 = "PIB";
-            nome2 = "PIB";
             break;
         case 4:
             valor1 = cidade1 == 1 ? pontos1 : cidade1 == 2 ? pontos2 : cidade1 == 3 ? pontos3 : pontos4;
             valor2 = cidade2 == 1 ? pontos1 : cidade2 == 2 ? pontos2 : cidade2 == 3 ? pontos3 : pontos4;
             nome1 = "Pontos Turísticos";
-            nome2 = "Pontos Turísticos";
             break;
 
         case 5:
             valor1 = cidade1 == 1 ? densidadeinvertida1 : cidade1 == 2 ? densidadeinvertida2 : cidade1 == 3 ? densidadeinvertida3 : densidadeinvertida4;
             valor2 = cidade2 == 1 ? densidadeinvertida1 : cidade2 == 2 ? densidadeinvertida2 : cidade2 == 3 ? densidadeinvertida3 : densidadeinvertida4;
             nome1 = "Densidade Demográfica";
-            nome2 = "Densidade Demográfica";
             break;
 
         case 6: 
             valor1 = cidade1 == 1 ? pibper1 : cidade1 == 2 ? pibper2 : cidade1 == 3 ? pibper3 : pibper4;
             valor2 = cidade2 == 1 ? pibper1 : cidade2 == 2 ? pibper2 : cidade2 == 3 ? pibper3 : pibper4;
             nome1 = "PIB per capita";
-            nome2 = "PIB per capita";
             break;
         case 7:
             valor1 = cidade1 == 1 ? superpoder1 : cidade1 == 2 ? superpoder2 : cidade1 == 3 ? superpoder3 : superpoder4;
             valor2 = cidade2 == 1 ? superpoder1 : cidade2 == 2 ? superpoder2 : cidade2 == 3 ? superpoder3 : superpoder4;
             nome1 = "Super Poder";
-            nome2 = "Super Poder";
             break;
         default: 
             printf("Opção inválida. Escolha um atributo entre 1 e 7."); continue;
         }
             
-            //switch para escolha do atributo 1 e comparação
+            //switch para escolha do atributo 2 e comparação
         switch (atributo2)
         {
         case 1:
-            valor1 = cidade1 == 1 ? populacao1 : cidade1 == 2 ? populacao2 : cidade1 == 3 ? populacao3 : populacao4;
-            valor2 = cidade2 == 1 ? populacao1 : cidade2 == 2 ? populacao2 : cidade2 == 3 ? populacao3 : populacao4;
-            nome1 = "População";
+            valor3 = cidade1 == 1 ? populacao1 : cidade1 == 2 ? populacao2 : cidade1 == 3 ? populacao3 : populacao4;
+            valor4 = cidade2 == 1 ? populacao1 : cidade2 == 2 ? populacao2 : cidade2 == 3 ? populacao3 : populacao4;
             nome2 = "População";
         break;
         
         case 2:
-            valor1 = cidade1 == 1 ? area1 : cidade1 == 2 ? area2 : cidade1 == 3 ? area3 : area4;
-            valor2 = cidade2 == 1 ? area1 : cidade2 == 2 ? area2 : cidade2 == 3 ? area3 : area4;
-            nome1 = "Área";
+            valor3 = cidade1 == 1 ? area1 : cidade1 == 2 ? area2 : cidade1 == 3 ? area3 : area4;
+            valor4 = cidade2 == 1 ? area1 : cidade2 == 2 ? area2 : cidade2 == 3 ? area3 : area4;
             nome2 = "Área";
         break;
 
         case 3:
-            valor1 = cidade1 == 1 ? PIB1 : cidade1 == 2 ? PIB2 : cidade1 == 3 ? PIB3 : PIB4;
-            valor2 = cidade2 == 1 ? PIB1 : cidade2 == 2 ? PIB2 : cidade2 == 3 ? PIB3 : PIB4;
-            nome1 = "PIB";
+            valor3 = cidade1 == 1 ? PIB1 : cidade1 == 2 ? PIB2 : cidade1 == 3 ? PIB3 : PIB4;
+            valor4 = cidade2 == 1 ? PIB1 : cidade2 == 2 ? PIB2 : cidade2 == 3 ? PIB3 : PIB4;
             nome2 = "PIB";
         break;
         case 4:
-            valor1 = cidade1 == 1 ? pontos1 : cidade1 == 2 ? pontos2 : cidade1 == 3 ? pontos3 : pontos4;
-            valor2 = cidade2 == 1 ? pontos1 : cidade2 == 2 ? pontos2 : cidade2 == 3 ? pontos3 : pontos4;
-            nome1 = "Pontos Turísticos";
+            valor3 = cidade1 == 1 ? pontos1 : cidade1 == 2 ? pontos2 : cidade1 == 3 ? pontos3 : pontos4;
+            valor4 = cidade2 == 1 ? pontos1 : cidade2 == 2 ? pontos2 : cidade2 == 3 ? pontos3 : pontos4;
             nome2 = "Pontos Turísticos";
         break;
 
         case 5:
-            valor1 = cidade1 == 1 ? densidadeinvertida1 : cidade1 == 2 ? densidadeinvertida2 : cidade1 == 3 ? densidadeinvertida3 : densidadeinvertida4;
-            valor2 = cidade2 == 1 ? densidadeinvertida1 : cidade2 == 2 ? densidadeinvertida2 : cidade2 == 3 ? densidadeinvertida3 : densidadeinvertida4;
-            nome1 = "Densidade Demográfica";
+            valor3 = cidade1 == 1 ? densidadeinvertida1 : cidade1 == 2 ? densidadeinvertida2 : cidade1 == 3 ? densidadeinvertida3 : densidadeinvertida4;
+            valor4 = cidade2 == 1 ? densidadeinvertida1 : cidade2 == 2 ? densidadeinvertida2 : cidade2 == 3 ? densidadeinvertida3 : densidadeinvertida4;
             nome2 = "Densidade Demográfica";
         break;
 
         case 6: 
-            valor1 = cidade1 == 1 ? pibper1 : cidade1 == 2 ? pibper2 : cidade1 == 3 ? pibper3 : pibper4;
-            valor2 = cidade2 == 1 ? pibper1 : cidade2 == 2 ? pibper2 : cidade2 == 3 ? pibper3 : pibper4;
-            nome1 = "PIB per capita";
+            valor3 = cidade1 == 1 ? pibper1 : cidade1 == 2 ? pibper2 : cidade1 == 3 ? pibper3 : pibper4;
+            valor4 = cidade2 == 1 ? pibper1 : cidade2 == 2 ? pibper2 : cidade2 == 3 ? pibper3 : pibper4;
             nome2 = "PIB per capita";
         break;
         case 7:
-            valor1 = cidade1 == 1 ? superpoder1 : cidade1 == 2 ? superpoder2 : cidade1 == 3 ? superpoder3 : superpoder4;
-            valor2 = cidade2 == 1 ? superpoder1 : cidade2 == 2 ? superpoder2 : cidade2 == 3 ? superpoder3 : superpoder4;
-            nome1 = "Super Poder";
+            valor3 = cidade1 == 1 ? superpoder1 : cidade1 == 2 ? superpoder2 : cidade1 == 3 ? superpoder3 : superpoder4;
+            valor4 = cidade2 == 1 ? superpoder1 : cidade2 == 2 ? superpoder2 : cidade2 == 3 ? superpoder3 : superpoder4;
             nome2 = "Super Poder";
         break;
         default: 
@@ -582,20 +568,20 @@ int main(){
         if (valor1 == valor2) {
             printf("Atributo %s: %s e %s têm valores iguais: %.2f (Empate)\n", nome1, nome_cidade1, nome_cidade2, valor1);
         } else if (valor1 > valor2) {
-            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome1, nome_cidade1, valor1, valor2);
+            printf("Atributo %s: %s tem um valor maior: %.5f > %.5f\n", nome1, nome_cidade1, valor1, valor2);
         } else {
-            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome1, nome_cidade2, valor2, valor1);
+            printf("Atributo %s: %s tem um valor maior: %.5f > %.5f\n", nome1, nome_cidade2, valor2, valor1);
         }
 
         // Exibir comparação para o segundo atributo
-        if (valor2 == valor1) {
-            printf("Atributo %s: %s e %s têm valores iguais: %.2f (Empate)\n", nome2, nome_cidade1, nome_cidade2, valor2);
-        } else if (valor2 > valor1) {
-            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome2, nome_cidade1, valor2, valor1);
+        if (valor3 == valor4) {
+            printf("Atributo %s: %s e %s têm valores iguais: %.2f (Empate)\n", nome2, nome_cidade1, nome_cidade2, valor3);
+        } else if (valor3 > valor4) {
+            printf("Atributo %s: %s tem um valor maior: %.5f > %.5f\n", nome2, nome_cidade1, valor3, valor4);
         } else {
-            printf("Atributo %s: %s tem um valor maior: %.2f > %.2f\n", nome2, nome_cidade2, valor1, valor2);
+            printf("Atributo %s: %s tem um valor maior: %.5f > %.5f\n", nome2, nome_cidade2, valor4, valor3);
         }
-
+    
         //sair do programa
         case 9:
         printf("Saindo...\n");
